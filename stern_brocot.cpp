@@ -21,6 +21,7 @@
 #include <cstdlib>
 #include <cstdint>
 #include <cstdio>
+#include <cstring>
 #include <deque>
 
 struct stern_brocot
@@ -80,9 +81,8 @@ static void list(uint32_t terms)
 	fprintf(stdout, "\n");
 }
 
-static void filter(uint32_t terms, uint32_t filter)
+static void filter(uint32_t terms, uint32_t filter, uint32_t i)
 {
-	uint32_t i = 1;
 	for (auto &n : stern_brocot(terms + 1))
 	{
 		if (n == filter)
@@ -94,19 +94,28 @@ static void filter(uint32_t terms, uint32_t filter)
 
 static void usage()
 {
-	fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS\n");
-	fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS FILTER_BY_VALUE\n");
+	fprintf(stdout, "usage: stern_brocot list    NUMBER_OF_TERMS\n");
+	fprintf(stdout, "usage: stern_brocot filter0 NUMBER_OF_TERMS FILTER_BY_VALUE\n");
+	fprintf(stdout, "usage: stern_brocot filter1 NUMBER_OF_TERMS FILTER_BY_VALUE\n");
 }
 
 int main(int argc, char ** argv)
 {
 	switch (argc)
 	{
-	case 2:
-		list(strtol(argv[1], nullptr, 10));
-		break;
 	case 3:
-		filter(strtol(argv[1], nullptr, 10), strtol(argv[2], nullptr, 10));
+		if (strcmp(argv[1], "list") == 0)
+			list(strtol(argv[2], nullptr, 10));
+		else
+			usage();
+		break;
+	case 4:
+		if (strcmp(argv[1], "filter0") == 0)
+			filter(strtol(argv[2], nullptr, 10), strtol(argv[3], nullptr, 10), 0);
+		else if (strcmp(argv[1], "filter1") == 0)
+			filter(strtol(argv[2], nullptr, 10), strtol(argv[3], nullptr, 10), 1);
+		else
+			usage();
 		break;
 	default:
 		usage();

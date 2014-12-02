@@ -13,24 +13,33 @@ running:
 
 This requires a functional C++11 compiler such as GCC or clang.
 
-## Generating the Numbers
+## Listing the Numbers
 
 You can generate the numbers by running:
 
-	./stern_brocot NUMBER_OF_TERMS
-	./stern_brocot NUMBER_OF_TERMS FILTER_BY_VALUE
+	./stern_brocot list NUMBER_OF_TERMS
 
 For example, to generate the first `5` Stern-Brocot numbers you can run:
 
-	./stern_brocot 5
+	./stern_brocot list 5
 
 The output is the sequence of numbers separated by a comma. For example:
 
 	1,1,2,1,3,
 
+## Filtering the Numbers
+
+You can list the positions of a given number by running:
+
+	./stern_brocot filter0 NUMBER_OF_TERMS FILTER_BY_VALUE
+	./stern_brocot filter1 NUMBER_OF_TERMS FILTER_BY_VALUE
+
+
 The `FILTER_BY_VALUE` argument tells the program to output the positions in the
-Stern-Brocot sequence where `FILTER_BY_VALUE` occurs. This is used to identify
-patterns in the distribution of the numbers in the Stern-Brocot sequence.
+Stern-Brocot sequence where `FILTER_BY_VALUE` occurs.
+
+The `filter0` command uses the original Stern-Brocot sequence. The `filter1`
+command offsets the indices by 1, so you have `t_1 = 1, t_2 = 1, t_3 = 2, ...`.
 
 ## License Information
 
