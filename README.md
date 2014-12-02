@@ -17,7 +17,15 @@ This requires a functional C++11 compiler such as GCC or clang.
 
 You can generate the numbers by running:
 
-	./stern_brocot
+	./stern_brocot NUMBER_OF_TERMS
+
+For example, to generate the first `5` Stern-Brocot numbers you can run:
+
+	./stern_brocot 5
+
+The output is the sequence of numbers separated by a comma. For example:
+
+	1,1,2,1,3,
 
 ## License Information
 

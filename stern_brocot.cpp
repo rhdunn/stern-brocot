@@ -18,6 +18,7 @@
  * along with stern-brocot.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <cstdlib>
 #include <cstdint>
 #include <cstdio>
 #include <deque>
@@ -74,7 +75,13 @@ private:
 
 int main(int argc, char ** argv)
 {
-	for (auto &n : stern_brocot(10))
+	if (argc != 2)
+	{
+		fprintf(stdout, "usage: stern_brocot <number-of-values>\n");
+		return 0;
+	}
+
+	for (auto &n : stern_brocot(strtol(argv[1], nullptr, 10) + 1))
 	{
 		fprintf(stdout, "%d,", n);
 	}
