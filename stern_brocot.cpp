@@ -73,31 +73,43 @@ private:
 	uint32_t limit;
 };
 
+static void list(uint32_t terms)
+{
+	for (auto &n : stern_brocot(terms + 1))
+		fprintf(stdout, "%d,", n);
+	fprintf(stdout, "\n");
+}
+
+static void filter(uint32_t terms, uint32_t filter)
+{
+	uint32_t i = 1;
+	for (auto &n : stern_brocot(terms + 1))
+	{
+		if (n == filter)
+			fprintf(stdout, "%d,", i);
+		++i;
+	}
+	fprintf(stdout, "\n");
+}
+
+static void usage()
+{
+	fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS\n");
+	fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS FILTER_BY_VALUE\n");
+}
+
 int main(int argc, char ** argv)
 {
 	switch (argc)
 	{
 	case 2:
-		for (auto &n : stern_brocot(strtol(argv[1], nullptr, 10) + 1))
-			fprintf(stdout, "%d,", n);
-		fprintf(stdout, "\n");
+		list(strtol(argv[1], nullptr, 10));
 		break;
 	case 3:
-		{
-			uint32_t filter = strtol(argv[2], nullptr, 10);
-			uint32_t i = 1;
-			for (auto &n : stern_brocot(strtol(argv[1], nullptr, 10) + 1))
-			{
-				if (n == filter)
-					fprintf(stdout, "%d,", i);
-				++i;
-			}
-			fprintf(stdout, "\n");
-		}
+		filter(strtol(argv[1], nullptr, 10), strtol(argv[2], nullptr, 10));
 		break;
 	default:
-		fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS\n");
-		fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS FILTER_BY_VALUE\n");
+		usage();
 		break;
 	}
 
