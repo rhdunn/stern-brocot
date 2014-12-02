@@ -4,4 +4,4 @@ all: stern_brocot
 	${CC} -c --std=c++11 $< -o $@
 
 stern_brocot: stern_brocot.o
-	${CC} --std=c++11 $< -o $@
+	${CC} --std=c++11 -lstdc++ $< -o $@

@@ -20,6 +20,7 @@
 
 #include <cstdint>
 #include <cstdio>
+#include <deque>
 
 struct stern_brocot
 {
@@ -33,17 +34,26 @@ struct stern_brocot
 		iterator(uint32_t x)
 			: n(x)
 		{
+			values.push_back(1); // t_0 = 1
+			values.push_back(1); // t_1 = 1
 		}
 
 		iterator &operator++()
 		{
+			uint32_t a = values.front();
+			values.pop_front();
+			uint32_t b = values.front();
+
+			values.push_back(a + b);
+			values.push_back(b);
+
 			++n;
 			return *this;
 		}
 
 		const uint32_t &operator*() const
 		{
-			return n;
+			return values.front();
 		}
 
 		bool operator!=(const iterator &rhs)
@@ -51,6 +61,7 @@ struct stern_brocot
 			return n != rhs.n;
 		}
 	private:
+		std::deque<uint32_t> values;
 		uint32_t n;
 	};
 
