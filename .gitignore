@@ -1,5 +1,13 @@
 .*.swp
 
 *.o
+*.aux
+*.log
+*.out
+
+
+*.dvi
+*.ps
+*.pdf
 
 stern_brocot
