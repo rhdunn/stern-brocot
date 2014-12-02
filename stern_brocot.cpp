@@ -75,17 +75,32 @@ private:
 
 int main(int argc, char ** argv)
 {
-	if (argc != 2)
+	switch (argc)
 	{
-		fprintf(stdout, "usage: stern_brocot <number-of-values>\n");
-		return 0;
+	case 2:
+		for (auto &n : stern_brocot(strtol(argv[1], nullptr, 10) + 1))
+			fprintf(stdout, "%d,", n);
+		fprintf(stdout, "\n");
+		break;
+	case 3:
+		{
+			uint32_t filter = strtol(argv[2], nullptr, 10);
+			uint32_t i = 1;
+			for (auto &n : stern_brocot(strtol(argv[1], nullptr, 10) + 1))
+			{
+				if (n == filter)
+					fprintf(stdout, "%d,", i);
+				++i;
+			}
+			fprintf(stdout, "\n");
+		}
+		break;
+	default:
+		fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS\n");
+		fprintf(stdout, "usage: stern_brocot NUMBER_OF_TERMS FILTER_BY_VALUE\n");
+		break;
 	}
 
-	for (auto &n : stern_brocot(strtol(argv[1], nullptr, 10) + 1))
-	{
-		fprintf(stdout, "%d,", n);
-	}
-	fprintf(stdout, "\n");
 
 	return 0;
 }

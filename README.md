@@ -18,6 +18,7 @@ This requires a functional C++11 compiler such as GCC or clang.
 You can generate the numbers by running:
 
 	./stern_brocot NUMBER_OF_TERMS
+	./stern_brocot NUMBER_OF_TERMS FILTER_BY_VALUE
 
 For example, to generate the first `5` Stern-Brocot numbers you can run:
 
@@ -26,6 +27,10 @@ For example, to generate the first `5` Stern-Brocot numbers you can run:
 The output is the sequence of numbers separated by a comma. For example:
 
 	1,1,2,1,3,
+
+The `FILTER_BY_VALUE` argument tells the program to output the positions in the
+Stern-Brocot sequence where `FILTER_BY_VALUE` occurs. This is used to identify
+patterns in the distribution of the numbers in the Stern-Brocot sequence.
 
 ## License Information
 
