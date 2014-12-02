@@ -7,8 +7,57 @@
 \title{Number Distribution in the Stern-Brocot Sequence}
 \date{}
 \author{Reece H. Dunn}
+
 \begin{document}
 
 \maketitle
+
+\section{Stern-Brocot Numbers}
+
+The Stern-Brocot sequence is the numbers:
+
+\begin{displaymath}
+[1, 1, 2, 1, 3, 2, 3, 1, 4, 3, ...]
+\end{displaymath}
+
+\noindent
+This is defined like the Fibbonacci sequence as follows:
+
+\begin{displaymath}
+t_0 = 1
+\end{displaymath}
+
+\begin{displaymath}
+t_1 = 1
+\end{displaymath}
+
+\begin{displaymath}
+t_k = t_{n-1} + t_n, t_{k+1} = t_n \forall n \in [1, 2, 3, 4, ...]
+\end{displaymath}
+
+\noindent
+Here, \begin{math}k\end{math} is the last generated term of the sequence.
+
+\noindent
+This sequence lists all the rational numbers in the following order:
+
+\begin{displaymath}
+\left[
+\frac{t_{n-1}}{t_n}
+\forall n \in [1, 2, 3, 4, ...]
+\right]
+=
+\left[
+\frac{1}{1},
+\frac{1}{2},
+\frac{2}{1},
+\frac{1}{3},
+...
+\right]
+\end{displaymath}
+
+\noindent
+This sequence of rational numbers is the same as the Stern-Brocot tree when
+using breadth-first traversal (left-to-right, top-to-bottom).
 
 \end{document}
