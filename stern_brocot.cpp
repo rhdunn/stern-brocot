@@ -23,6 +23,7 @@
 #include <cstdio>
 #include <cstring>
 #include <deque>
+#include <list>
 
 struct stern_brocot
 {
@@ -74,6 +75,16 @@ private:
 	uint32_t limit;
 };
 
+static uint32_t *find(std::list<uint32_t> &values, uint32_t n)
+{
+	for (auto &value : values)
+	{
+		if (value == n)
+			return &value;
+	}
+	return nullptr;
+}
+
 static void list(uint32_t terms)
 {
 	for (auto &n : stern_brocot(terms + 1))
@@ -92,11 +103,36 @@ static void filter(uint32_t terms, uint32_t filter, uint32_t i)
 	fprintf(stdout, "\n");
 }
 
+static void sequences(uint32_t terms, uint32_t filter)
+{
+	std::list<uint32_t> seq;
+	uint32_t i = 1;
+	for (auto &n : stern_brocot(terms + 1))
+	{
+		if (n == filter)
+		{
+			uint32_t *match = find(seq, i);
+			if (match == nullptr)
+			{
+				fprintf(stdout, "%d,", i);
+				seq.push_back(i * 2); // next instance of this sequence value
+			}
+			else
+			{
+				*match = *match * 2; // next instance of this sequence value
+			}
+		}
+		++i;
+	}
+	fprintf(stdout, "\n");
+}
+
 static void usage()
 {
 	fprintf(stdout, "usage: stern_brocot list    NUMBER_OF_TERMS\n");
 	fprintf(stdout, "usage: stern_brocot filter0 NUMBER_OF_TERMS FILTER_BY_VALUE\n");
 	fprintf(stdout, "usage: stern_brocot filter1 NUMBER_OF_TERMS FILTER_BY_VALUE\n");
+	fprintf(stdout, "usage: stern_brocot sequences NUMBER_OF_TERMS FILTER_BY_VALUE\n");
 }
 
 int main(int argc, char ** argv)
@@ -114,6 +150,8 @@ int main(int argc, char ** argv)
 			filter(strtol(argv[2], nullptr, 10), strtol(argv[3], nullptr, 10), 0);
 		else if (strcmp(argv[1], "filter1") == 0)
 			filter(strtol(argv[2], nullptr, 10), strtol(argv[3], nullptr, 10), 1);
+		else if (strcmp(argv[1], "sequences") == 0)
+			sequences(strtol(argv[2], nullptr, 10), strtol(argv[3], nullptr, 10));
 		else
 			usage();
 		break;

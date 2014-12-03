@@ -21,10 +21,7 @@ You can generate the numbers by running:
 
 For example, to generate the first `5` Stern-Brocot numbers you can run:
 
-	./stern_brocot list 5
-
-The output is the sequence of numbers separated by a comma. For example:
-
+	$ ./stern_brocot list 5
 	1,1,2,1,3,
 
 ## Filtering the Numbers
@@ -40,6 +37,18 @@ Stern-Brocot sequence where `FILTER_BY_VALUE` occurs.
 
 The `filter0` command uses the original Stern-Brocot sequence. The `filter1`
 command offsets the indices by 1, so you have `t_1 = 1, t_2 = 1, t_3 = 2, ...`.
+
+## Finding Number Sequences
+
+You can find the exponential sequences contained within a given number
+distribution by running:
+
+	./stern_brocot sequences NUMBER_OF_TERMS FILTER_BY_VALUE
+
+For example:
+
+	$ ./stern_brocot sequences 10000 3
+	5,7,
 
 ## License Information
 
