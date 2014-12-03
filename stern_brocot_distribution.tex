@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[pdfusetitle]{hyperref}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \hypersetup{
 	pdfkeywords = {Stern-Brocot},
 	pdfsubject  = {Stern-Brocot sequences}
@@ -74,38 +75,59 @@ B^n = [i \forall i \in \mathbb{N}_{1} : S_i = n]
 \end{displaymath}
 
 \noindent
-and:
+which gives:
 
-\begin{displaymath}
+\begin{displaymath}\begin{aligned}
+B^1
+& = [0, 1, 3, 7, 15, 31, ...] \\
+& = [2^i-1 \forall i \in \mathbb{N}_{0}]
+\end{aligned}\end{displaymath}
+
+\noindent
+This is because the Stern-Brocot sequence is defined to start at
+\begin{math}S_0\end{math}.
+
+\noindent
+To make the sequences easier to identify in terms of the exponential series
+\begin{math}2^i\end{math}, we define:
+
+\begin{displaymath}\begin{aligned}
 B'^n
-= [i+1 \forall i \in \mathbb{N}_{1} : S_i = n]
-= [B^n_i + 1 \forall i \in \mathbb{N}_{0}]
-\end{displaymath}
+& = [i+1 \forall i \in \mathbb{N}_{1} : S_i = n] \\
+& = [B^n_i + 1 \forall i \in \mathbb{N}_{0}]
+\end{aligned}\end{displaymath}
 
 \noindent
-The distribution of 1s is:
+which gives:
 
-\begin{displaymath}
-B'^1
-= [1, 2, 4, 8, 16, 32, ...]
-= [2^i \forall i \in \mathbb{N}_{0}]
-\end{displaymath}
-
-\noindent
-The distribution of 2s is:
-
-\begin{displaymath}
-B'^2
-= [3, 6, 12, 24, 48, 98, ...]
-= [3.2^i \forall i \in \mathbb{N}_{0}]
-\end{displaymath}
+\begin{displaymath}\begin{aligned}
+& B'^1 = [1, 2,  4,  8, 16, 32, ...] =   [2^i \forall i \in \mathbb{N}_{0}] \\
+& B'^2 = [3, 6, 12, 24, 48, 98, ...] = [3.2^i \forall i \in \mathbb{N}_{0}]
+\end{aligned}\end{displaymath}
 
 \noindent
-The distribution of 3s is:
+We can define the following exponential sequence:
 
-\begin{displaymath}
+\begin{displaymath}\begin{aligned}
+E^n  & = [n2^i-1 \forall i \in \mathbb{N}_{0}] \\
+E'^n & = [n2^i \forall i \in \mathbb{N}_{0}]
+\end{aligned}\end{displaymath}
+
+\noindent
+which gives:
+
+\begin{displaymath}\begin{aligned}
+& B'^1 = [1, 2,  4,  8, 16, 32, ...] = E'^1 \\
+& B'^2 = [3, 6, 12, 24, 48, 98, ...] = E'^3
+\end{aligned}\end{displaymath}
+
+\noindent
+This can then be used to describe the sequences of the other numbers:
+
+\begin{displaymath}\begin{aligned}
 B'^3
-= [5, 7, 10, 14, 20, 28, 40, 56, 80, 112, ...]
-\end{displaymath}
+& = [5, 7, 10, 14, 20, 28, 40, 56, 80, 112, ...] \\
+& = E'^5 \cap E'^7
+\end{aligned}\end{displaymath}
 
 \end{document}
