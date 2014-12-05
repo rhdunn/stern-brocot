@@ -164,8 +164,26 @@ The program, along with the \LaTeX\ source for this paper, can be found at
 
 \section{Number Distribution Patterns}
 
-Taking the first largest value in each \begin{math}N'^n\end{math} set gives the
-sequence:
+This section looks at the patterns within the numbers contained in the
+\begin{math}N'^n\end{math} sets to identify any higher-order relationships in
+the number distributions. That is, we are identifying a sequence:
+
+\begin{displaymath}\begin{aligned}
+\beta = [\beta_1, \beta_2, \beta_3, \beta_4, ...]
+\end{aligned}\end{displaymath}
+
+\noindent
+such that:
+
+\begin{displaymath}\begin{aligned}
+\beta_n \in N'^{f(n)} \forall n \in \mathbb{N}_{1}
+\end{aligned}\end{displaymath}
+
+\noindent
+for a given function \begin{math}f\end{math}.
+
+\noindent
+Given \begin{math}f(x)=x\end{math}, we find the sequence:
 
 \begin{displaymath}\begin{aligned}
 & [1, 3, 7, 15, 31, 63, 127, 255, 511, ...] = [2^n-1 \forall n \in \mathbb{N}_{1}] \\
@@ -173,21 +191,15 @@ sequence:
 \end{aligned}\end{displaymath}
 
 \noindent
-Taking the second largest value in each \begin{math}N'^n\end{math} set gives
-the sequence:
+and:
 
 \begin{displaymath}\begin{aligned}
-& [2, 3, 5, 9, 17, 33, 65, 129, 257, ...] = [2^{n-1}+1 \forall n \in \mathbb{N}_{1}] \\
+& [3, 5, 9, 17, 33, 65, 129, 257, ...] = [2^{n-1}+1 \forall n>1 \in \mathbb{N}_{1}] \\
 & \implies 2^{n-1}+1 \in N'^n \forall n>1 \in \mathbb{N}_{1}
 \end{aligned}\end{displaymath}
 
 \noindent
-For the \begin{math}n=1\end{math} case \begin{math}E'^2 \subset E'^1\end{math}, so the
-pattern is valid in that case.
-
-\noindent
-Taking the third largest value in each odd numbered \begin{math}N'^n\end{math}
-set gives the sequence:
+Given \begin{math}f(x)=2x-1\end{math}, we find the sequence:
 
 \begin{displaymath}\begin{aligned}
 & [1, 5, 13, 29, 61, 125, 253, 509, ...] = [2^{n+1}-3 \forall n \in \mathbb{N}_{1}] \\
@@ -195,17 +207,15 @@ set gives the sequence:
 \end{aligned}\end{displaymath}
 
 \noindent
-Looking at the values in the odd numbered \begin{math}N'^{n>1}\end{math} sets
-gives the sequence:
+and:
 
 \begin{displaymath}\begin{aligned}
 & [7, 11, 19, 35, 67, 131, 259, 515, ...] = [2^{n-1}+3 \forall n>1 \in \mathbb{N}_{1}] \\
-& \implies 2^{n+1}-3 \in N'^{2n-1} \forall n \in \mathbb{N}_{1}
+& \implies 2^{n+1}-3 \in N'^{2n-1} \forall n>1 \in \mathbb{N}_{1}
 \end{aligned}\end{displaymath}
 
 \noindent
-Looking at the values in the \begin{math}N'^{3n-1}\end{math} sets
-(\begin{math}N'^{2}, N'^{5}, N'^{8}, N'^{11}, ...\end{math}) gives the values:
+Given \begin{math}f(x)=3x-1\end{math}, we find the sequence:
 
 \begin{displaymath}\begin{aligned}
 & [3, 11, 27, 59, 123, ...] = [2^{n+2}-5 \forall n \in \mathbb{N}_{1}] \\
