@@ -211,7 +211,7 @@ and:
 
 \begin{displaymath}\begin{aligned}
 & [7, 11, 19, 35, 67, 131, 259, 515, ...] = [2^{n-1}+3 \forall n>1 \in \mathbb{N}_{1}] \\
-& \implies 2^{n+1}-3 \in N'^{2n-1} \forall n>1 \in \mathbb{N}_{1}
+& \implies 2^{n-1}+3 \in N'^{2n-1} \forall n>1 \in \mathbb{N}_{1}
 \end{aligned}\end{displaymath}
 
 \noindent
@@ -244,6 +244,25 @@ and:
 \begin{displaymath}\begin{aligned}
 & [15, 23, 39, 71, 135, 263, ...] = [2^{n+1}+7 \forall n>1 \in \mathbb{N}_{1}] \\
 & \implies 2^{n+1}+7 \in N'^{3n-2} \forall n>1 \in \mathbb{N}_{1}
+\end{aligned}\end{displaymath}
+
+\section{Generalized Number Distribution Patterns}
+
+We have the following patterns for numbers in the \begin{math}N'^n\end{math}
+sets:
+
+\begin{displaymath}\begin{aligned}
+2^n-1     & \in N'^n      \forall n \in \mathbb{N}_{1} \\
+2^{n+1}-3 & \in N'^{2n-1} \forall n \in \mathbb{N}_{1} \\
+2^{n+2}-5 & \in N'^{3n-1} \forall n \in \mathbb{N}_{1}
+\end{aligned}\end{displaymath}
+
+and:
+
+\begin{displaymath}\begin{aligned}
+2^{n-1}+1 & \in N'^n      \forall n>1 \in \mathbb{N}_{1} \\
+2^{n-1}+3 & \in N'^{2n-1} \forall n>1 \in \mathbb{N}_{1} \\
+2^{n+1}+7 & \in N'^{3n-2} \forall n>1 \in \mathbb{N}_{1}
 \end{aligned}\end{displaymath}
 
 \end{document}
