@@ -164,12 +164,25 @@ The program, along with the \LaTeX\ source for this paper, can be found at
 
 \section{Number Distribution Patterns}
 
-Taking the largest value in each \begin{math}N'^n\end{math} set gives the
+Taking the first largest value in each \begin{math}N'^n\end{math} set gives the
 sequence:
 
 \begin{displaymath}\begin{aligned}
 & [1, 3, 7, 15, 31, 63, 127, 255, 511, ...] = [2^n-1 \forall n \in \mathbb{N}_{1}] \\
 & \implies 2^n-1 \in N'^n \forall n \in \mathbb{N}_{1}
 \end{aligned}\end{displaymath}
+
+\noindent
+Taking the second largest value in each \begin{math}N'^n\end{math} set gives
+the sequence:
+
+\begin{displaymath}\begin{aligned}
+& [2, 3, 5, 9, 17, 33, 65, 129, 257, ...] = [2^{n-1}+1 \forall n \in \mathbb{N}_{1}] \\
+& \implies 2^{n-1}+1 \in N'^n \forall n>1 \in \mathbb{N}_{1}
+\end{aligned}\end{displaymath}
+
+\noindent
+For the \begin{math}n=1\end{math} case \begin{math}E'^2 \subset E'^1\end{math}, so the
+pattern is valid in that case.
 
 \end{document}
