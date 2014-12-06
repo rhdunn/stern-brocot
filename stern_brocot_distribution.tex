@@ -423,4 +423,36 @@ That is, they follow the left branch of the Stern-Brocot tree.
 From these equations, \begin{math}a_n\end{math} is the depth of the subtree
 for the position of \begin{math}\frac{d_n}{c_n}\end{math}.
 
+\noindent
+The number of terms needed to find the values in the \begin{math}N'^n\end{math}
+sets are:
+
+\begin{displaymath}\begin{aligned}
+t = \left[ \frac{1}{2}, \frac{1}{2}, 1, 1, 2, 1, 4, 3, 8, 4, 16, 7, ... \right]
+\end{aligned}\end{displaymath}
+
+\noindent
+Here, \begin{math}\frac{1}{2}\end{math} means you only need the first equation
+in the pair. That is, you only need the equation:
+
+\begin{displaymath}\begin{aligned}
+2^n-1 & \in N'^n \forall n \in \mathbb{N}_{1}
+\end{aligned}\end{displaymath}
+
+\noindent
+Keeping the largest value from the previous terms gives:
+
+\begin{displaymath}\begin{aligned}
+t = \left[ \frac{1}{2}, \frac{1}{2}, 1, 1, 2, 2, 4, 4, 8, 8, 16, 16, ... \right]
+\end{aligned}\end{displaymath}
+
+\noindent
+This gives:
+
+\begin{displaymath}\begin{aligned}
+t_n
+=
+2^{\left\lfloor \frac{n+1}{2} \right\rfloor-2}
+\end{aligned}\end{displaymath}
+
 \end{document}
