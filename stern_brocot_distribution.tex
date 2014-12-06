@@ -341,4 +341,82 @@ These patterns continue as follows:
 2^{n+5}-33 & \in N'^{6n-1}\forall n \in \mathbb{N}_{1} & 2^{n+4}+33 & \in N'^{6n-1}\forall n>1 \in \mathbb{N}_{1} \\
 \end{aligned}\end{displaymath}
 
+\noindent
+These patterns follow the general rules:
+
+\begin{displaymath}\begin{aligned}
+2^{n+a_{i}}-b_{i}   & \in N'^{c_{i}n-d_{i}}\forall n, i   \in \mathbb{N}_{1} \\
+2^{n+a_{i}-1}+b_{i} & \in N'^{c_{i}n-d_{i}}\forall n>1, i \in \mathbb{N}_{1} \\
+\end{aligned}\end{displaymath}
+
+\noindent
+The \begin{math}a\end{math} values follow the sequence:
+
+\begin{displaymath}\begin{aligned}
+a = [0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, ...]
+\end{aligned}\end{displaymath}
+
+\noindent
+this follows the pattern:
+
+\begin{displaymath}\begin{aligned}
+a_n = \lfloor log_2(n) \rfloor
+\end{aligned}\end{displaymath}
+
+\noindent
+The \begin{math}b\end{math} values follow the sequence:
+
+\begin{displaymath}\begin{aligned}
+b = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, ...]
+\end{aligned}\end{displaymath}
+
+\noindent
+this follows the pattern:
+
+\begin{displaymath}\begin{aligned}
+b_n = 2n-1
+\end{aligned}\end{displaymath}
+
+\noindent
+The \begin{math}c\end{math} and \begin{math}d\end{math} values follow the
+sequence:
+
+\begin{displaymath}\begin{aligned}
+\left[
+\frac{d_n}{c_n} \forall n \in \mathbb{N}_1
+\right]
+=
+\left[
+\frac{0}{1},
+\frac{1}{2},
+\frac{1}{3},
+\frac{2}{3},
+\frac{1}{4},
+\frac{2}{5},
+\frac{3}{5},
+\frac{3}{4},
+\frac{1}{5},
+\frac{2}{7},
+\frac{3}{8},
+\frac{3}{7},
+\frac{4}{7},
+\frac{5}{8},
+\frac{5}{7},
+\frac{4}{5},
+\frac{1}{6},
+...
+\right]
+\end{aligned}\end{displaymath}
+
+\noindent
+This is the Stern-Brocot tree in breadth-first traversal (left-to-right,
+top-to-bottom) where:
+
+\begin{displaymath}\begin{aligned}
+\frac{d_n}{c_n} < \frac{1}{1}
+\end{aligned}\end{displaymath}
+
+\noindent
+That is, they follow the left branch of the Stern-Brocot tree.
+
 \end{document}
